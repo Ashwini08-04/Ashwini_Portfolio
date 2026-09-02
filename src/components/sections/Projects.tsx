@@ -55,7 +55,7 @@ const projects: Project[] = [
     ],
     accent: '#22d3ee',
     github: 'https://github.com/Ashwini08-04/CareerPilot',
-    live: '/projects/careerpilot-demo.mp4',
+    live: 'https://res.cloudinary.com/todfvuck/video/upload/v1788342838/careerpilot-demo-compressed_unk3gs.mp4',
     featured: true,
   },
 
@@ -87,7 +87,7 @@ const projects: Project[] = [
     accent: '#a78bfa',
     github:
       'https://github.com/Ashwini08-04/PersonalFinancePlatform',
-    live: '/projects/fintrack-demo.mp4',
+    live: 'https://res.cloudinary.com/todfvuck/video/upload/v1788342855/fintrack-demo-compressed_drvr5k.mp4',
   },
 
   {
