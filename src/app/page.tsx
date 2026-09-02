@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Preloader from '@/components/ui/Preloader'
 import Cursor from '@/components/ui/Cursor'
 import ScrollProgress from '@/components/ui/ScrollProgress'
@@ -19,24 +20,62 @@ export default function Home() {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2200)
+
     return () => clearTimeout(timer)
   }, [])
 
-  if (loading) return <Preloader />
-
   return (
-    <main className="relative min-h-screen bg-[#040811] overflow-x-hidden">
-      <Cursor />
-      <ScrollProgress />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Achievements />
-      <Contact />
-      <Footer />
+    <main className="relative min-h-screen overflow-x-hidden bg-[#040811]">
+      <AnimatePresence mode="wait">
+        {loading && (
+          <motion.div
+            key="preloader"
+            initial={{ opacity: 1, scale: 1 }}
+            exit={{
+              opacity: 0,
+              scale: 1.025,
+              filter: 'blur(4px)',
+            }}
+            transition={{
+              duration: 0.7,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+          >
+            <Preloader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {!loading && (
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 18,
+            scale: 0.995,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <Cursor />
+          <ScrollProgress />
+          <Navbar />
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Achievements />
+          <Contact />
+          <Footer />
+        </motion.div>
+      )}
     </main>
   )
 }

@@ -2,151 +2,390 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Trophy, Code2, Building2, Lightbulb } from 'lucide-react'
+import {
+  Trophy,
+  Code2,
+  Building2,
+  Lightbulb,
+  ArrowUpRight,
+  Check,
+} from 'lucide-react'
 
 const achievements = [
   {
+    number: '01',
     icon: Building2,
-    title: 'Industrial Training Completed',
-    desc: 'Successfully completed two industrial training programs at top automotive companies — Dhoot Automotive and Hitachi Astemo.',
+    title: 'Industrial Training',
+    desc: 'Completed industrial training at Dhoot Automotive Systems and Hitachi Astemo, gaining practical exposure to automotive engineering and quality processes.',
     color: '#22d3ee',
-    stat: '2x',
-    statLabel: 'Companies',
+    label: 'Industry Exposure',
   },
   {
+    number: '02',
     icon: Code2,
-    title: 'Built Full-Stack Applications',
-    desc: 'Designed and developed end-to-end web applications covering frontend, backend APIs, databases, and deployment.',
-    color: '#7c3aed',
-    stat: '3+',
-    statLabel: 'Projects Live',
+    title: 'Full-Stack Projects',
+    desc: 'Built end-to-end applications covering responsive interfaces, backend APIs, database integration, authentication and AI-powered features.',
+    color: '#a78bfa',
+    label: 'Project Experience',
   },
   {
+    number: '03',
     icon: Lightbulb,
-    title: 'Strong Problem-Solving Skills',
-    desc: 'Consistently applied structured thinking and data-driven approaches to debug, optimize, and improve application performance.',
+    title: 'Problem Solving',
+    desc: 'Enjoy breaking complex requirements into practical solutions and continuously improving application functionality and user experience.',
     color: '#f59e0b',
-    stat: '100+',
-    statLabel: 'Problems Solved',
+    label: 'Core Strength',
   },
   {
+    number: '04',
     icon: Trophy,
-    title: 'Hands-On Industry Exposure',
-    desc: 'Gained real-world engineering workflow experience, including manufacturing processes, QC standards, and team collaboration.',
+    title: 'Engineering Mindset',
+    desc: 'Developed a structured approach to quality, documentation, teamwork and systematic problem solving through academic and industrial exposure.',
     color: '#ec4899',
-    stat: '6mo',
-    statLabel: 'Experience',
+    label: 'Professional Growth',
   },
 ]
 
+const strengths = [
+  'End-to-end full-stack development',
+  'Hands-on industrial exposure',
+  'Strong problem-solving mindset',
+  'Clean and maintainable code',
+  'Fast learner & technology adaptable',
+]
+
 export default function Achievements() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef<HTMLElement>(null)
+
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px',
+  })
 
   return (
-    <section id="achievements" ref={ref} className="relative py-28 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/4 rounded-full blur-3xl" />
+    <section
+      id="achievements"
+      ref={ref}
+      className="relative overflow-hidden py-20 md:py-24"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-[#080f1e]/20" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="absolute -left-40 top-20 h-[400px] w-[400px] rounded-full bg-cyan-500/[0.025] blur-[150px]" />
+
+      <div className="absolute -right-40 bottom-10 h-[400px] w-[400px] rounded-full bg-violet-500/[0.025] blur-[150px]" />
+
+      {/* Grid */}
+      <div
+        className="absolute inset-0 opacity-[0.018]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="flex items-center gap-4 mb-16"
+          initial={{ opacity: 0, y: 25 }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.7,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="mb-10"
         >
-          <div className="w-10 h-10 rounded-lg glass border border-cyan-400/20 flex items-center justify-center">
-            <Trophy size={18} className="text-cyan-400" />
+          <div className="mb-5 flex items-center gap-3">
+            <span className="font-mono text-[9px] tracking-[0.3em] text-cyan-400/50">
+              05
+            </span>
+
+            <div className="h-px w-8 bg-cyan-400/30" />
+
+            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-cyan-400/70">
+              Achievements
+            </span>
           </div>
-          <div>
-            <p className="font-mono text-xs text-cyan-400/60 tracking-widest uppercase mb-1">05 / achievements</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white">Achievements</h2>
+
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <h2 className="max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white md:text-6xl">
+                Highlights of my
+                <br />
+                <span className="text-slate-500">
+                  journey so far.
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
+                A few milestones, experiences and strengths that
+                represent my journey from academic learning to
+                practical software development.
+              </p>
+            </div>
+
+            <div className="hidden items-center gap-2 md:flex">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-slate-600">
+                Growth in progress
+              </span>
+            </div>
           </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-cyan-400/20 to-transparent ml-4" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {achievements.map(({ icon: Icon, title, desc, color, stat, statLabel }, i) => (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="glass rounded-2xl p-6 border border-white/5 hover:border-opacity-40 transition-all duration-300 group relative overflow-hidden"
-              style={{ '--hover-color': color } as React.CSSProperties}
-            >
-              {/* Glow on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ background: `radial-gradient(circle at top left, ${color}10, transparent 70%)` }}
-              />
-
-              <div className="flex items-start gap-5">
-                {/* Icon */}
+        {/* Achievement Cards */}
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {achievements.map(
+            (
+              {
+                number,
+                icon: Icon,
+                title,
+                desc,
+                color,
+                label,
+              },
+              index
+            ) => (
+              <motion.article
+                key={title}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={
+                  isInView
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 0.6,
+                  delay: 0.12 + index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{
+                  y: -6,
+                }}
+                className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-[24px] border border-white/[0.08] bg-white/[0.025] p-5 backdrop-blur-xl transition-all duration-500 hover:border-white/[0.15] hover:bg-white/[0.035] hover:shadow-2xl hover:shadow-black/20"
+              >
+                {/* Accent line */}
                 <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: `${color}15`, border: `1px solid ${color}30` }}
-                >
-                  <Icon size={22} style={{ color }} />
+                  className="absolute left-0 right-0 top-0 h-px opacity-60 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+                  }}
+                />
+
+                {/* Ambient glow */}
+                <div
+                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-[70px] transition-opacity duration-700 group-hover:opacity-100"
+                  style={{
+                    backgroundColor: `${color}25`,
+                  }}
+                />
+
+                {/* Top row */}
+                <div className="relative flex items-center justify-between">
+                  <span
+                    className="font-mono text-[9px] tracking-[0.25em]"
+                    style={{
+                      color: `${color}80`,
+                    }}
+                  >
+                    {number}
+                  </span>
+
+                  <ArrowUpRight
+                    size={15}
+                    className="opacity-30 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:opacity-100"
+                    style={{
+                      color,
+                    }}
+                  />
+                </div>
+
+                {/* Icon */}
+                <div className="relative mt-8">
+                  <div
+                    className="flex h-11 w-11 items-center justify-center rounded-xl border transition-all duration-500 group-hover:scale-105"
+                    style={{
+                      borderColor: `${color}28`,
+                      backgroundColor: `${color}0d`,
+                      boxShadow: `0 0 0 transparent`,
+                    }}
+                  >
+                    <Icon
+                      size={18}
+                      style={{
+                        color,
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1">
-                  <h3 className="font-display font-bold text-white mb-2 group-hover:translate-x-1 transition-transform duration-200">
+                <div className="relative mt-6 flex flex-1 flex-col">
+                  <p
+                    className="mb-2 font-mono text-[8px] uppercase tracking-[0.25em]"
+                    style={{
+                      color: `${color}90`,
+                    }}
+                  >
+                    {label}
+                  </p>
+
+                  <h3 className="font-display text-lg font-semibold tracking-tight text-white transition-transform duration-300 group-hover:translate-x-0.5">
                     {title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+
+                  <p className="mt-3 text-xs leading-6 text-slate-500">
+                    {desc}
+                  </p>
                 </div>
 
-                {/* Stat */}
-                <div className="text-right shrink-0">
-                  <p className="font-display text-2xl font-bold" style={{ color }}>{stat}</p>
-                  <p className="text-slate-500 text-xs">{statLabel}</p>
+                {/* Bottom accent */}
+                <div className="relative mt-5 h-px w-0 transition-all duration-500 group-hover:w-full">
+                  <div
+                    className="h-full"
+                    style={{
+                      background: color,
+                      boxShadow: `0 0 10px ${color}`,
+                    }}
+                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            )
+          )}
         </div>
 
-        {/* Why Hire Me section */}
+        {/* What I Bring */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-16 glass rounded-2xl p-8 border border-cyan-400/10"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.7,
+            delay: 0.55,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="relative mt-5 overflow-hidden rounded-[24px] border border-cyan-400/10 bg-cyan-400/[0.015] p-6 md:p-7"
         >
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          {/* Glow */}
+          <div className="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full bg-cyan-400/[0.04] blur-[80px]" />
+
+          <div className="relative grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+
+            {/* Left */}
             <div>
-              <h3 className="font-display text-2xl font-bold text-white mb-3">Why Hire Me?</h3>
-              <p className="text-slate-400 leading-relaxed">
-                I build more than code — I deliver solutions that connect frontend elegance with backend logic
-                to drive real business outcomes. My focus is on measurable value, clean systems, and continuous improvement.
+              <div className="mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.7)]" />
+
+                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-cyan-400/60">
+                  What I bring
+                </span>
+              </div>
+
+              <h3 className="font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                Ready to build,
+                <br />
+                <span className="text-slate-500">
+                  learn & improve.
+                </span>
+              </h3>
+
+              <p className="mt-3 max-w-md text-xs leading-6 text-slate-500 md:text-sm">
+                I combine technical learning with practical
+                project experience to build useful, maintainable
+                and thoughtful applications.
               </p>
             </div>
-            <div className="space-y-3">
-              {[
-                'Strong problem-solving with data-first thinking',
-                'End-to-end full-stack delivery experience',
-                'Real-world industry exposure & discipline',
-                'Fast learner adapting to new technologies',
-                'Passionate about clean, maintainable code',
-              ].map((point, i) => (
+
+            {/* Strengths */}
+            <div className="grid gap-2.5 sm:grid-cols-2">
+              {strengths.map((strength, index) => (
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
-                  className="flex items-center gap-3 text-sm text-slate-300"
+                  key={strength}
+                  initial={{
+                    opacity: 0,
+                    x: 15,
+                  }}
+                  animate={
+                    isInView
+                      ? {
+                          opacity: 1,
+                          x: 0,
+                        }
+                      : {}
+                  }
+                  transition={{
+                    duration: 0.45,
+                    delay: 0.65 + index * 0.07,
+                  }}
+                  className="group/strength flex items-center gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] px-3.5 py-3 transition-all duration-300 hover:border-cyan-400/15 hover:bg-white/[0.04]"
                 >
-                  <div className="w-5 h-5 rounded-full bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center shrink-0">
-                    <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full" />
-                  </div>
-                  {point}
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/[0.05]">
+                    <Check
+                      size={10}
+                      className="text-cyan-400"
+                    />
+                  </span>
+
+                  <span className="text-xs text-slate-400 transition-colors duration-300 group-hover/strength:text-slate-200">
+                    {strength}
+                  </span>
                 </motion.div>
               ))}
             </div>
           </div>
+        </motion.div>
+
+        {/* Bottom statement */}
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.7,
+            delay: 0.9,
+          }}
+          className="mt-10 flex items-center gap-4"
+        >
+          <div className="h-px flex-1 bg-white/[0.06]" />
+
+          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-slate-700">
+            Build • Learn • Grow
+          </span>
+
+          <div className="h-px flex-1 bg-white/[0.06]" />
         </motion.div>
       </div>
     </section>
