@@ -91,33 +91,34 @@ const projects: Project[] = [
   },
 
   {
-    number: '03',
-    title: 'FoodieHub',
-    subtitle: 'Full-Stack Food Delivery Platform',
-    description:
-      'A full-stack food delivery platform for restaurant discovery, menu browsing and order management, with dedicated functionality for customers and restaurants.',
-    category: 'Full-Stack',
-    image: '/projects/foodiehub.png',
-    tech: [
-      'React.js',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'JWT',
-    ],
-    features: [
-      'Restaurant Discovery',
-      'Menu Browsing',
-      'Cart & Orders',
-      'Restaurant Dashboard',
-      'Role-Based Access',
-      'Order Management',
-    ],
-    accent: '#fb7185',
-    github:
-      'https://github.com/Ashwini08-04/FoodieHub',
-    live: '/projects/foodiehub-demo.mp4',
-  },
+  number: '03',
+  title: 'FoodieHub',
+  subtitle: 'Full-Stack Food Delivery Platform',
+  description:
+    'A full-stack food delivery platform for restaurant discovery, menu browsing and order management, with dedicated functionality for customers and restaurants.',
+  category: 'Full-Stack',
+  image: '/projects/foodiehub.png',
+  tech: [
+    'React.js',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'JWT',
+  ],
+  features: [
+    'Restaurant Discovery',
+    'Menu Browsing',
+    'Cart & Orders',
+    'Restaurant Dashboard',
+    'Role-Based Access',
+    'Order Management',
+  ],
+  accent: '#fb7185',
+  github:
+    'https://github.com/Ashwini08-04/FoodieHub',
+  live:
+    'https://res.cloudinary.com/todfvuck/video/upload/v1788525482/foodiehub-demo-web_qpvtpw.mp4',
+},
 ]
 
 const filters = ['All', 'SaaS', 'FinTech', 'Full-Stack']
