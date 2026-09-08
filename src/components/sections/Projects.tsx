@@ -24,6 +24,7 @@ type Project = {
   accent: string
   github: string
   live?: string
+  liveSite?: string
   featured?: boolean
 }
 
@@ -55,7 +56,9 @@ const projects: Project[] = [
     ],
     accent: '#22d3ee',
     github: 'https://github.com/Ashwini08-04/CareerPilot',
-    live: 'https://res.cloudinary.com/todfvuck/video/upload/v1788342838/careerpilot-demo-compressed_unk3gs.mp4',
+    live:
+      'https://res.cloudinary.com/todfvuck/video/upload/v1788342838/careerpilot-demo-compressed_unk3gs.mp4',
+    liveSite: 'https://careerpilot-dev.vercel.app/',
     featured: true,
   },
 
@@ -87,38 +90,42 @@ const projects: Project[] = [
     accent: '#a78bfa',
     github:
       'https://github.com/Ashwini08-04/PersonalFinancePlatform',
-    live: 'https://res.cloudinary.com/todfvuck/video/upload/v1788342855/fintrack-demo-compressed_drvr5k.mp4',
+    live:
+      'https://res.cloudinary.com/todfvuck/video/upload/v1788342855/fintrack-demo-compressed_drvr5k.mp4',
+    liveSite: 'https://personalfinance-dev.vercel.app/',
   },
 
   {
-  number: '03',
-  title: 'FoodieHub',
-  subtitle: 'Full-Stack Food Delivery Platform',
-  description:
-    'A full-stack food delivery platform for restaurant discovery, menu browsing and order management, with dedicated functionality for customers and restaurants.',
-  category: 'Full-Stack',
-  image: '/projects/foodiehub.png',
-  tech: [
-    'React.js',
-    'Node.js',
-    'Express.js',
-    'MongoDB',
-    'JWT',
-  ],
-  features: [
-    'Restaurant Discovery',
-    'Menu Browsing',
-    'Cart & Orders',
-    'Restaurant Dashboard',
-    'Role-Based Access',
-    'Order Management',
-  ],
-  accent: '#fb7185',
-  github:
-    'https://github.com/Ashwini08-04/FoodieHub',
-  live:
-    'https://res.cloudinary.com/todfvuck/video/upload/v1788525482/foodiehub-demo-web_qpvtpw.mp4',
-},
+    number: '03',
+    title: 'FoodieHub',
+    subtitle: 'Full-Stack Food Delivery Platform',
+    description:
+      'A full-stack food delivery platform for restaurant discovery, menu browsing and order management, with dedicated functionality for customers and restaurants.',
+    category: 'Full-Stack',
+    image: '/projects/foodiehub.png',
+    tech: [
+      'React.js',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'JWT',
+    ],
+    features: [
+      'Restaurant Discovery',
+      'Menu Browsing',
+      'Cart & Orders',
+      'Restaurant Dashboard',
+      'Role-Based Access',
+      'Order Management',
+    ],
+    accent: '#fb7185',
+    github:
+      'https://github.com/Ashwini08-04/FoodieHub',
+    live:
+      'https://res.cloudinary.com/todfvuck/video/upload/v1788525482/foodiehub-demo-web_qpvtpw.mp4',
+    liveSite: 'https://foodiehub-dev.vercel.app/login',
+  },
+
 ]
 
 const filters = ['All', 'SaaS', 'FinTech', 'Full-Stack']
@@ -129,16 +136,12 @@ function ProjectImage({ project }: { project: Project }) {
       {/* Ambient glow */}
       <div
         className="absolute -left-20 -top-20 h-64 w-64 rounded-full blur-[100px]"
-        style={{
-          background: `${project.accent}18`,
-        }}
+        style={{ background: `${project.accent}18` }}
       />
 
       <div
         className="absolute -bottom-24 -right-20 h-72 w-72 rounded-full blur-[120px]"
-        style={{
-          background: `${project.accent}12`,
-        }}
+        style={{ background: `${project.accent}12` }}
       />
 
       {/* Grid */}
@@ -164,7 +167,7 @@ function ProjectImage({ project }: { project: Project }) {
       {/* Cinematic overlay */}
       <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#040811] via-[#040811]/10 to-transparent opacity-90" />
 
-      {/* Top subtle shine */}
+      {/* Top shine */}
       <div className="absolute inset-x-0 top-0 z-30 h-24 bg-gradient-to-b from-white/[0.04] to-transparent" />
 
       {/* Category */}
@@ -273,7 +276,7 @@ function ProjectCard({
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5 md:p-5.5">
-        {/* Header row */}
+        {/* Header */}
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span
@@ -307,9 +310,7 @@ function ProjectCard({
 
           <p
             className="mt-1.5 text-xs font-medium"
-            style={{
-              color: project.accent,
-            }}
+            style={{ color: project.accent }}
           >
             {project.subtitle}
           </p>
@@ -336,9 +337,7 @@ function ProjectCard({
               >
                 <Check
                   size={9}
-                  style={{
-                    color: project.accent,
-                  }}
+                  style={{ color: project.accent }}
                 />
               </span>
 
@@ -364,12 +363,13 @@ function ProjectCard({
 
         {/* Buttons */}
         <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
-          {/* Live Demo */}
-          {project.live ? (
-            <button
-              type="button"
-              onClick={() => onLiveDemo(project)}
-              className="group/live flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[10px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+          {/* Live Site */}
+          {project.liveSite && (
+            <a
+              href={project.liveSite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/site flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[10px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               style={{
                 color: '#040811',
                 backgroundColor: project.accent,
@@ -377,17 +377,34 @@ function ProjectCard({
             >
               <ExternalLink size={12} />
 
-              <span>Live Demo</span>
+              <span>Live Site</span>
 
               <ArrowUpRight
                 size={11}
-                className="transition-transform duration-300 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5"
+                className="transition-transform duration-300 group-hover/site:translate-x-0.5 group-hover/site:-translate-y-0.5"
+              />
+            </a>
+          )}
+
+          {/* Demo Video */}
+          {project.live ? (
+            <button
+              type="button"
+              onClick={() => onLiveDemo(project)}
+              className="group/demo flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-white/[0.025] px-4 py-2.5 text-[10px] font-medium text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/[0.18] hover:bg-white/[0.05] hover:text-white"
+            >
+              <ExternalLink size={12} />
+              <span>Demo</span>
+
+              <ArrowUpRight
+                size={10}
+                className="opacity-50 transition-all duration-300 group-hover/demo:translate-x-0.5 group-hover/demo:-translate-y-0.5 group-hover/demo:opacity-100"
               />
             </button>
           ) : (
             <span className="flex cursor-not-allowed items-center gap-1.5 rounded-full border border-white/[0.07] bg-white/[0.02] px-4 py-2.5 text-[10px] text-slate-700">
               <ExternalLink size={12} />
-              Live Demo
+              Demo
             </span>
           )}
 
