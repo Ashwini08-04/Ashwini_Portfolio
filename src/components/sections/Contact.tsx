@@ -100,7 +100,6 @@ export default function Contact() {
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -126,7 +125,6 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -154,9 +152,9 @@ export default function Contact() {
 
             {/* Contact Info */}
             <div className="space-y-3">
-
+              {/* Updated Email */}
               <a
-                href="mailto:sonawaneashwini073@gmail.com"
+                href="mailto:sonawaneashwini0406@gmail.com"
                 className="flex items-center gap-4 p-4 glass rounded-xl border border-white/5 hover:border-cyan-400/20 transition-all duration-300 group"
               >
                 <div className="w-9 h-9 bg-cyan-400/10 rounded-lg flex items-center justify-center">
@@ -164,7 +162,7 @@ export default function Contact() {
                 </div>
 
                 <span className="text-slate-300 text-sm group-hover:text-white transition-colors">
-                  sonawaneashwini073@gmail.com
+                  sonawaneashwini0406@gmail.com
                 </span>
               </a>
 
@@ -190,12 +188,10 @@ export default function Contact() {
                   Jalgaon, India
                 </span>
               </div>
-
             </div>
 
             {/* Social */}
             <div className="flex gap-3">
-
               <motion.a
                 href="https://github.com/Ashwini08-04"
                 target="_blank"
@@ -217,7 +213,6 @@ export default function Contact() {
                 <Linkedin size={15} />
                 LinkedIn
               </motion.a>
-
             </div>
           </motion.div>
 
@@ -227,19 +222,14 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-
             {status === 'sent' ? (
-
               /* SUCCESS */
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="glass rounded-2xl p-12 border border-green-400/20 flex flex-col items-center text-center gap-5"
               >
-                <CheckCircle
-                  size={56}
-                  className="text-green-400"
-                />
+                <CheckCircle size={56} className="text-green-400" />
 
                 <h3 className="font-display text-2xl font-bold text-white">
                   Message Sent!
@@ -256,19 +246,15 @@ export default function Contact() {
                   Send Another Message
                 </button>
               </motion.div>
-
             ) : (
-
               /* FORM */
               <div className="glass rounded-2xl p-7 md:p-8 border border-white/5 space-y-5">
-
                 <h3 className="font-display text-xl font-bold text-white mb-5">
                   Send a Message
                 </h3>
 
                 {/* Name + Email */}
                 <div className="grid sm:grid-cols-2 gap-4">
-
                   <div>
                     <label className="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">
                       Name
@@ -326,12 +312,10 @@ export default function Contact() {
                       </p>
                     )}
                   </div>
-
                 </div>
 
                 {/* Message */}
                 <div>
-
                   <label className="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">
                     Message
                   </label>
@@ -358,7 +342,6 @@ export default function Contact() {
                       {errors.message}
                     </p>
                   )}
-
                 </div>
 
                 {/* Error */}
@@ -381,7 +364,6 @@ export default function Contact() {
                   }}
                   className="w-full flex items-center justify-center gap-2 bg-cyan-400 text-[#040811] py-3.5 rounded-xl font-semibold text-sm hover:bg-cyan-300 transition-all disabled:opacity-70"
                 >
-
                   {status === 'sending' ? (
                     <>
                       <motion.div
@@ -402,14 +384,10 @@ export default function Contact() {
                       Send Message
                     </>
                   )}
-
                 </motion.button>
-
               </div>
             )}
-
           </motion.div>
-
         </div>
       </div>
     </section>
