@@ -30,7 +30,7 @@ const socials = [
   },
   {
     icon: Mail,
-    href: 'mailto:sonawaneashwini073@gmail.com',
+    href: 'mailto:sonawaneashwini0406@gmail.com',
     label: 'Email',
   },
 ]
@@ -190,7 +190,7 @@ export default function Footer() {
             <div className="space-y-4">
 
               <a
-                href="mailto:sonawaneashwini073@gmail.com"
+                href="mailto:sonawaneashwini0406@gmail.com"
                 className="group block"
               >
                 <span className="text-xs text-slate-600">
@@ -198,7 +198,7 @@ export default function Footer() {
                 </span>
 
                 <span className="mt-1 block break-all text-sm text-slate-300 transition-colors group-hover:text-cyan-400">
-                  sonawaneashwini073@gmail.com
+                  sonawaneashwini0406@gmail.com
                 </span>
               </a>
 

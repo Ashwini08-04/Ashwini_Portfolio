@@ -225,7 +225,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=sonawaneashwini073@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sonawaneashwini0406@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Email"
